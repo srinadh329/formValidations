@@ -28,5 +28,13 @@ export class GstComponent implements OnInit {
       console.log(this.value)
 
     }
+    else if(this.gstForm.valid && this.gstForm.value.pirce 
+      && this.gstForm.value.qty && this.gstForm.value.gst && this.gstForm.value.discount){
+      let res = parseInt(this.gstForm.value.pirce) * parseInt(this.gstForm.value.qty);
+      let total = (res* parseInt(this.gstForm.value.gst)/100) + res
+      this.value = total - parseInt(this.gstForm.value.discount);
+      console.log(this.value)
+
+    }
   }
 }

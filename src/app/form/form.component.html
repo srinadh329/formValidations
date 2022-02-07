@@ -14,7 +14,7 @@
       <input matInput placeholder="age" formControlName="age" />
       <mat-error *ngIf="formValidation.get('age').hasError('required')">Please Enter Age</mat-error>
       <mat-error *ngIf="formValidation.get('age').hasError('pattern')">Only Numbers</mat-error>
-      <mat-error *ngIf="formValidation.get('age').hasError('ageValidation')">Only Numbers</mat-error>
+      <mat-error *ngIf="formValidation.get('age').hasError('age')">Above 18</mat-error>
     </mat-form-field>
   </p>
   <p>

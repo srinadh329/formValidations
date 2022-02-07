@@ -1,1 +1,32 @@
-<p>form-array works!</p>
+<div>
+    <p>
+        <a (click)="dynamicAdd()">
+            <mat-icon>add</mat-icon> Add
+        </a>
+        
+    </p>
+</div>
+<form [formGroup]="dynamicForm" (ngSubmit)="dynamicData()">
+    <div formArrayName="newData">
+        <div *ngFor="let newdata of newData.controls let i=index">
+            <p>
+                <mat-form-field appearance="outline">
+                    <mat-label>Name</mat-label>
+                    <input matInput placeholder="Name" formControlName="fname"/>
+                </mat-form-field>
+            </p>
+            <p>
+                <mat-form-field appearance="outline">
+                    <mat-label>Last Name</mat-label>
+                    <input matInput placeholder="Name" formControlName="lname"/>
+                </mat-form-field>
+            </p>
+            <a (click)="dynamicRemove(i)">
+                <mat-icon>remove</mat-icon> remove
+            </a>
+        </div>
+    </div>
+    <p>
+        <button type="submit">Submit</button>
+    </p>
+</form>

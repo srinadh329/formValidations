@@ -25,14 +25,11 @@ export class MatStepperComponent implements OnInit {
       name:['',Validators.required],
       password:['',Validators.required],
       conformpassword:['',Validators.required]
-    },
-    {
-      validators: Validation
     }
     )
   }
   twoFormData(){
-    let data = {user1:this.firstFormGroup.value, user2:this.secondFormGroup.value}
+    let data = {firstValue:this.firstFormGroup.value, secondValue:this.secondFormGroup.value}
     console.log(data)
   }
 }

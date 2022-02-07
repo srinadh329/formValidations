@@ -6,5 +6,6 @@ export function ageValidation(contorl:AbstractControl){
 }
 
 export function Validation(p:AbstractControl){
-    return p.value.password != p.value.conformpassword ? {'password':true} : null
+    console.log(p.value)
+    return p.value.password !== p.value.conformpassword ? {'password':true} : null
 }

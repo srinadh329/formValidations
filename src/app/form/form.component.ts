@@ -17,7 +17,7 @@ export class FormComponent implements OnInit {
     this.formValidation = this.formbuilder.group({
       name:['',[Validators.required,Validators.maxLength(20),Validators.pattern('^[a-zA-Z ]*$')]],
       age:['',[Validators.required,Validators.pattern('^[0-9]*$'),ageValidation]],
-      state:['',Validators.required],
+      state:['',[Validators.required]],
       city:['',Validators.required],
     });
     console.log(this.states.find((x:any)=>console.log(x.name)))

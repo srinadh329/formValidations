@@ -20,11 +20,12 @@
                 <mat-label>Conform Password</mat-label>
               <input matInput formControlName="conformpassword" placeholder="Last name, First name" required>
               <mat-error *ngIf="firstFormGroup.get('conformpassword').hasError('required')">Enter conform password</mat-error>
+              <mat-error *ngIf="firstFormGroup.get('conformpassword').hasError('password')">Doesn't Match Password</mat-error>
             </mat-form-field>
         </p>
        
         <div>
-          <button mat-button matStepperNext [disabled]="!firstFormGroup.valid">Next</button>
+          <button mat-button matStepperNext>Next</button>
         </div>
 
       </form>
@@ -50,6 +51,7 @@
                     <mat-label>Conform Password</mat-label>
                   <input matInput formControlName="conformpassword" placeholder="Last name, First name" required>
                   <mat-error *ngIf="secondFormGroup.get('conformpassword').hasError('required')">Enter conform password</mat-error>
+                  <mat-error *ngIf="secondFormGroup.get('conformpassword').hasError('password')">Doesn't Match Password</mat-error>
                 </mat-form-field>
             </p>
           <div>
