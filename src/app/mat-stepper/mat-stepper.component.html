@@ -1,0 +1,68 @@
+<mat-stepper linear #stepper>
+    <mat-step [stepControl]="firstFormGroup">
+      <form [formGroup]="firstFormGroup">
+        <p>
+            <mat-form-field appearance="outline">
+                <mat-label>Name</mat-label>
+              <input matInput formControlName="name" placeholder="Last name, First name" required>
+              <mat-error *ngIf="firstFormGroup.get('name').hasError('required')">Enter Name</mat-error>
+            </mat-form-field>
+        </p>
+        <p>
+            <mat-form-field appearance="outline">
+                <mat-label>Password</mat-label>
+              <input matInput formControlName="password" placeholder="Last name, First name" required>
+              <mat-error *ngIf="firstFormGroup.get('password').hasError('required')">Enter password</mat-error>
+            </mat-form-field>
+        </p>
+        <p>
+            <mat-form-field appearance="outline">
+                <mat-label>Conform Password</mat-label>
+              <input matInput formControlName="conformpassword" placeholder="Last name, First name" required>
+              <mat-error *ngIf="firstFormGroup.get('conformpassword').hasError('required')">Enter conform password</mat-error>
+            </mat-form-field>
+        </p>
+       
+        <div>
+          <button mat-button matStepperNext>Next</button>
+        </div>
+
+      </form>
+    </mat-step>
+    <mat-step [stepControl]="secondFormGroup">
+        <form [formGroup]="secondFormGroup">
+            <p>
+                <mat-form-field appearance="outline">
+                    <mat-label>Name</mat-label>
+                  <input matInput formControlName="name" placeholder="Last name, First name" required>
+                  <mat-error *ngIf="secondFormGroup.get('name').hasError('required')">Enter Name</mat-error>
+                </mat-form-field>
+            </p>
+            <p>
+                <mat-form-field appearance="outline">
+                    <mat-label>Password</mat-label>
+                  <input matInput formControlName="password" placeholder="Last name, First name" required>
+                  <mat-error *ngIf="secondFormGroup.get('password').hasError('required')">Enter password</mat-error>
+                </mat-form-field>
+            </p>
+            <p>
+                <mat-form-field appearance="outline">
+                    <mat-label>Conform Password</mat-label>
+                  <input matInput formControlName="conformpassword" placeholder="Last name, First name" required>
+                  <mat-error *ngIf="secondFormGroup.get('conformpassword').hasError('required')">Enter conform password</mat-error>
+                </mat-form-field>
+            </p>
+          <div>
+            <button mat-button matStepperPrevious>Back</button>
+            <button mat-button matStepperNext>Next</button>
+          </div>
+        </form>
+      </mat-step>
+      <mat-step>
+        <p>You are Finally Submit.</p>
+        <div>
+          <button mat-button matStepperPrevious>Back</button>
+          <button mat-button (click)="twoFormData()">submit</button>
+        </div>
+      </mat-step>
+  </mat-stepper>
