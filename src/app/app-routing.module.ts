@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { FormArrayComponent } from './form-array/form-array.component';
 import { FormCalComponent } from './form-cal/form-cal.component';
 import { FormComponent } from './form/form.component';
+import { GstComponent } from './gst/gst.component';
 import { HeaderComponent } from './header/header.component';
 import { MatStepperComponent } from './mat-stepper/mat-stepper.component';
 
@@ -13,7 +14,8 @@ const routes: Routes = [
       {path:'form',component:FormComponent},
       {path:'matstepper',component:MatStepperComponent},
       {path:'formarray',component:FormArrayComponent},
-      {path:'formcal',component:FormCalComponent}
+      {path:'formcal',component:FormCalComponent},
+      {path:'gst',component:GstComponent}
     ]
   }
 ];

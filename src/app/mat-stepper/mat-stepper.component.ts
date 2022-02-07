@@ -18,7 +18,7 @@ export class MatStepperComponent implements OnInit {
       conformpassword:['',Validators.required]
     },
     {
-      validators: [Validation]
+      validators: Validation
     }
     );
     this.secondFormGroup = this.formbuilder.group({
@@ -27,7 +27,7 @@ export class MatStepperComponent implements OnInit {
       conformpassword:['',Validators.required]
     },
     {
-      validators: [Validation]
+      validators: Validation
     }
     )
   }

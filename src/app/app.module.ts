@@ -9,7 +9,8 @@ import { MatStepperComponent } from './mat-stepper/mat-stepper.component';
 import { FormArrayComponent } from './form-array/form-array.component';
 import { FormCalComponent } from './form-cal/form-cal.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {MaterialModule} from './material/material.module'
+import {MaterialModule} from './material/material.module';
+import { GstComponent } from './gst/gst.component'
 @NgModule({
   declarations: [
     AppComponent,
@@ -17,7 +18,8 @@ import {MaterialModule} from './material/material.module'
     HeaderComponent,
     MatStepperComponent,
     FormArrayComponent,
-    FormCalComponent
+    FormCalComponent,
+    GstComponent
   ],
   imports: [
     BrowserModule,
