@@ -29,4 +29,7 @@ export class FormArrayComponent implements OnInit {
   
    this.friend.push(friendForm)
   }
+  removeIndex(data:any){
+    this.friend.removeAt(data)
+  }
 }
