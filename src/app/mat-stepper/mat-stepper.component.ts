@@ -7,11 +7,9 @@ import {Validation} from '../material/customValidation'
   styleUrls: ['./mat-stepper.component.scss']
 })
 export class MatStepperComponent implements OnInit {
-  firstFormGroup:any;
-  secondFormGroup:any;
-  constructor(private formbuilder:FormBuilder) { }
-
-  ngOnInit(): void {
+  firstFormGroup:FormGroup;
+  secondFormGroup:FormGroup;
+  constructor(private formbuilder:FormBuilder) { 
     this.firstFormGroup = this.formbuilder.group({
       name:['',Validators.required],
       password:['',Validators.required],
@@ -19,14 +17,17 @@ export class MatStepperComponent implements OnInit {
     },
     {
       validators: Validation
-    }
-    );
+    });
     this.secondFormGroup = this.formbuilder.group({
       name:['',Validators.required],
       password:['',Validators.required],
       conformpassword:['',Validators.required]
-    }
-    )
+    });
+  }
+
+  ngOnInit(): void {
+    
+   
   }
   twoFormData(){
     let data = {firstValue:this.firstFormGroup.value, secondValue:this.secondFormGroup.value}

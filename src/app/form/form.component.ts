@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import {ageValidation} from '../material/customValidation'
 @Component({
   selector: 'app-form',
@@ -7,13 +7,11 @@ import {ageValidation} from '../material/customValidation'
   styleUrls: ['./form.component.scss']
 })
 export class FormComponent implements OnInit {
-  formValidation:any;
+  formValidation:FormGroup;
   states:any=[{name:'Andhra Pradesh',cities:[{name:'vizag'},{name:'vzm'}]},
               {name:'Telangana',cities:[{name:'hyd'},{name:'kmm'}]}]
               city:any;
-  constructor(private formbuilder:FormBuilder) { }
-  
-  ngOnInit(): void {
+  constructor(private formbuilder:FormBuilder) {
     this.formValidation = this.formbuilder.group({
       name:['',[Validators.required,Validators.maxLength(20),Validators.pattern('^[a-zA-Z ]*$')]],
       age:['',[Validators.required,Validators.pattern('^[0-9]*$'),ageValidation]],
@@ -21,6 +19,10 @@ export class FormComponent implements OnInit {
       city:['',Validators.required],
     });
     console.log(this.states.find((x:any)=>console.log(x.name)))
+   }
+  
+  ngOnInit(): void {
+    
   }
   // state selection function
 

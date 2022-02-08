@@ -1,16 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 @Component({
   selector: 'app-gst',
   templateUrl: './gst.component.html',
   styleUrls: ['./gst.component.scss']
 })
 export class GstComponent implements OnInit {
-  gstForm:any;
+  gstForm:FormGroup;
   value:any
-  constructor(private formbuilder:FormBuilder) { }
-
-  ngOnInit(): void {
+  constructor(private formbuilder:FormBuilder) {
     this.gstForm = this.formbuilder.group({
       name:['',Validators.required],
       pirce:['',Validators.required],
@@ -18,6 +16,10 @@ export class GstComponent implements OnInit {
       gst:['',Validators.required],
       discount:['']
     })
+   }
+
+  ngOnInit(): void {
+   
   }
   total(){
     if(this.gstForm.valid && this.gstForm.value.pirce 

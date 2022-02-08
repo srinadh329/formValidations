@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-form-cal',
@@ -7,11 +7,10 @@ import { FormBuilder, Validators } from '@angular/forms';
   styleUrls: ['./form-cal.component.scss']
 })
 export class FormCalComponent implements OnInit {
-  CalForm: any;
+  CalForm: FormGroup;
   value:any
-  constructor(private formbuilder:FormBuilder) { }
+  constructor(private formbuilder:FormBuilder) {
 
-  ngOnInit(): void {
     this.CalForm = this.formbuilder.group({
       name:['',Validators.required],
       gross_salary:['',Validators.required],
@@ -20,6 +19,10 @@ export class FormCalComponent implements OnInit {
       pf:['',Validators.required],
       tax:['',Validators.required],
     })
+   }
+
+  ngOnInit(): void {
+    
   }
   total(){
    

@@ -5,22 +5,22 @@
             <mat-form-field appearance="outline">
                 <mat-label>Name</mat-label>
               <input matInput formControlName="name" placeholder="Last name, First name" required>
-              <mat-error *ngIf="firstFormGroup.get('name').hasError('required')">Enter Name</mat-error>
+              <mat-error *ngIf="firstFormGroup.get('name')?.hasError('required')">Enter Name</mat-error>
             </mat-form-field>
         </p>
         <p>
             <mat-form-field appearance="outline">
                 <mat-label>Password</mat-label>
               <input matInput formControlName="password" placeholder="Last name, First name" required>
-              <mat-error *ngIf="firstFormGroup.get('password').hasError('required')">Enter password</mat-error>
+              <mat-error *ngIf="firstFormGroup.get('password')?.hasError('required')">Enter password</mat-error>
             </mat-form-field>
         </p>
         <p>
             <mat-form-field appearance="outline">
                 <mat-label>Conform Password</mat-label>
               <input matInput formControlName="conformpassword" placeholder="Last name, First name" required>
-              <mat-error *ngIf="firstFormGroup.get('conformpassword').hasError('required')">Enter conform password</mat-error>
-              <mat-error *ngIf="firstFormGroup.get('conformpassword').hasError('password')">Doesn't Match Password</mat-error>
+              <mat-error *ngIf="firstFormGroup.get('conformpassword')?.hasError('required')">Enter conform password</mat-error>
+              <mat-error *ngIf="firstFormGroup.get('conformpassword')?.hasError('password')">Doesn't Match Password</mat-error>
             </mat-form-field>
         </p>
        
@@ -36,22 +36,22 @@
                 <mat-form-field appearance="outline">
                     <mat-label>Name</mat-label>
                   <input matInput formControlName="name" placeholder="Last name, First name" required>
-                  <mat-error *ngIf="secondFormGroup.get('name').hasError('required')">Enter Name</mat-error>
+                  <mat-error *ngIf="secondFormGroup.get('name')?.hasError('required')">Enter Name</mat-error>
                 </mat-form-field>
             </p>
             <p>
                 <mat-form-field appearance="outline">
                     <mat-label>Password</mat-label>
                   <input matInput formControlName="password" placeholder="Last name, First name" required>
-                  <mat-error *ngIf="secondFormGroup.get('password').hasError('required')">Enter password</mat-error>
+                  <mat-error *ngIf="secondFormGroup.get('password')?.hasError('required')">Enter password</mat-error>
                 </mat-form-field>
             </p>
             <p>
                 <mat-form-field appearance="outline">
                     <mat-label>Conform Password</mat-label>
                   <input matInput formControlName="conformpassword" placeholder="Last name, First name" required>
-                  <mat-error *ngIf="secondFormGroup.get('conformpassword').hasError('required')">Enter conform password</mat-error>
-                  <mat-error *ngIf="secondFormGroup.get('conformpassword').hasError('password')">Doesn't Match Password</mat-error>
+                  <mat-error *ngIf="secondFormGroup.get('conformpassword')?.hasError('required')">Enter conform password</mat-error>
+                  <mat-error *ngIf="secondFormGroup.get('conformpassword')?.hasError('password')">Doesn't Match Password</mat-error>
                 </mat-form-field>
             </p>
           <div>
