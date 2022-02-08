@@ -24,10 +24,13 @@ export class FormCalComponent implements OnInit {
   total(){
    
     // let total = this.CalForm.value;
-    let total = parseInt(this.CalForm.value.gross_salary) + parseInt(this.CalForm.value.hra) + 
-    parseInt(this.CalForm.value.incentives) - parseInt(this.CalForm.value.pf)- parseInt(this.CalForm.value.tax);
-    console.log(total)
-    this.value = total
+    if(this.CalForm.valid){
+      let total = parseInt(this.CalForm.value.gross_salary) + parseInt(this.CalForm.value.hra) + 
+      parseInt(this.CalForm.value.incentives) - (parseInt(this.CalForm.value.pf)+ parseInt(this.CalForm.value.tax));
+      console.log(total)
+      this.value = total
+    }
+  
   }
 
 }

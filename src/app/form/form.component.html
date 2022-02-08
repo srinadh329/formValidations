@@ -1,4 +1,4 @@
-<form [formGroup]="formValidation">
+<form [formGroup]="formValidation" (ngSubmit)="userData()">
   <p>
     <mat-form-field appearance="outline">
       <mat-label>Name</mat-label>
@@ -14,19 +14,19 @@
       <input matInput placeholder="age" formControlName="age" />
       <mat-error *ngIf="formValidation.get('age').hasError('required')">Please Enter Age</mat-error>
       <mat-error *ngIf="formValidation.get('age').hasError('pattern')">Only Numbers</mat-error>
-      <mat-error *ngIf="formValidation.get('age').hasError('age')">Above 18</mat-error>
+      <mat-error *ngIf="formValidation.get('age').hasError('aboveAge')">Above 18</mat-error>
     </mat-form-field>
   </p>
   <p>
     <mat-form-field appearance="outline">
       <mat-label>Choose State</mat-label>
-      <mat-select formControlName="state" (selectionChange)="stateSelection($event)">
+      <mat-select formControlName="state"  (selectionChange)="stateSelection($event)">
         <mat-option *ngFor="let state of states" value="{{state.name}}">{{state.name}}</mat-option>
       </mat-select>
       <mat-error *ngIf="formValidation.get('state').hasError('required')">Please Enter State</mat-error>
     </mat-form-field>
   </p>
-  <p>
+  <p >
     <mat-form-field appearance="outline">
       <mat-label>Choose City</mat-label>
       <mat-select formControlName="city">

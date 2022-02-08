@@ -29,4 +29,10 @@ export class FormComponent implements OnInit {
     this.city = this.states.find((s:any)=>s.name == data.value)?.cities;
   }
    // state selection function
+  //  user data function
+  userData(){
+    if(this.formValidation.valid){
+      console.log(this.formValidation.value)
+    }
+  }
 }

@@ -25,7 +25,7 @@
         </p>
        
         <div>
-          <button mat-button matStepperNext>Next</button>
+          <button mat-button matStepperNext [disabled]="!firstFormGroup.valid">Next</button>
         </div>
 
       </form>

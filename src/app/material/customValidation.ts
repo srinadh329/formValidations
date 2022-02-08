@@ -2,7 +2,7 @@ import { AbstractControl } from "@angular/forms";
 
 export function ageValidation(contorl:AbstractControl){
     console.log(contorl.value)
-    return contorl.value < 18 ? {'age':true} : null
+    return contorl.value < 18 ? {'aboveAge':true} : null
 }
 
 export function Validation(p:AbstractControl){

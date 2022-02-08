@@ -7,36 +7,26 @@ import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@ang
   styleUrls: ['./form-array.component.scss']
 })
 export class FormArrayComponent implements OnInit {
-  dynamicForm:FormGroup;
+  dynamicArray:FormGroup;
   constructor(private formbuilder:FormBuilder) { 
-    this.dynamicForm = this.formbuilder.group({
-      // name:['',Validators.required],
-      // last:['',Validators.required],
-      newData: this.formbuilder.array([
-        
-      ])
+    this.dynamicArray = this.formbuilder.group({
+      name:['',Validators.required],
+      age:['',Validators.required],
+      friend: this.formbuilder.array([])
     })
   }
 
   ngOnInit(): void {
    
   }
-  dynamicAdd(){
-    this.newData.push(this.formbuilder.group({
-      fname:[''],
-      lname:[]
-    }))
+  get friend(){
+    return this.dynamicArray.get("friend") as FormArray
   }
-  dynamicRemove(index:number){
-    console.log(index)
-    this.newData.removeAt(index)
-  }
-  get newData(){
-    return this.dynamicForm.get('newData') as FormArray;
-  }
-  dynamicData(){
-    if(this.dynamicForm.valid){
-      console.log(this.dynamicForm.value)
-    }
+  addDynamicArray(){
+   const friendForm = this.formbuilder.group({
+    fname: ['', Validators.required],
+   })
+  
+   this.friend.push(friendForm)
   }
 }
