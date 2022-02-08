@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import {ageValidation} from '../material/customValidation'
+import {customValidation} from '../material/customValidation'
 @Component({
   selector: 'app-form',
   templateUrl: './form.component.html',
@@ -14,7 +14,7 @@ export class FormComponent implements OnInit {
   constructor(private formbuilder:FormBuilder) {
     this.formValidation = this.formbuilder.group({
       name:['',[Validators.required,Validators.maxLength(20),Validators.pattern('^[a-zA-Z ]*$')]],
-      age:['',[Validators.required,Validators.pattern('^[0-9]*$'),ageValidation]],
+      age:['',[Validators.required,Validators.pattern('^[0-9]*$'),customValidation.ageValidation]],
       state:['',[Validators.required]],
       city:['',Validators.required],
     });

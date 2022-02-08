@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import {Validation} from '../material/customValidation'
+import {customValidation} from '../material/customValidation'
 @Component({
   selector: 'app-mat-stepper',
   templateUrl: './mat-stepper.component.html',
@@ -16,12 +16,15 @@ export class MatStepperComponent implements OnInit {
       conformpassword:['',Validators.required]
     },
     {
-      validators: Validation
+      validators: customValidation.PasswordValidation
     });
     this.secondFormGroup = this.formbuilder.group({
       name:['',Validators.required],
       password:['',Validators.required],
       conformpassword:['',Validators.required]
+    },
+    {
+      validators: customValidation.PasswordValidation
     });
   }
 
