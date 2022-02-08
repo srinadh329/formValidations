@@ -28,6 +28,7 @@ export class FormArrayComponent implements OnInit {
    })
   
    this.friend.push(friendForm)
+   console.log(this.dynamicArray)
   }
   removeIndex(data:any){
     this.friend.removeAt(data)

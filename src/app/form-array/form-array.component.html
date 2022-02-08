@@ -18,7 +18,7 @@
   </p>
   <div formArrayName="friend">
     <div *ngFor="let friendForm of friend.controls; let i = index">
-      <div [formGroupName]="i" *ngIf="i < 3">
+      <div [formGroupName]="i" >
         <p>
           <mat-form-field appearance="outline">
             <mat-label>Friend</mat-label>
@@ -32,5 +32,6 @@
       </div>
     </div>
   </div>
-  <p (click)="addDynamicArray()" class="add"><mat-icon>add</mat-icon> ADD</p>
+  <p (click)="addDynamicArray()" class="add" *ngIf="friend.controls.length <3"><mat-icon>add</mat-icon> ADD</p>
+
 </form>

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MatStepper } from '@angular/material/stepper/stepper';
 import {customValidation} from '../material/customValidation'
 @Component({
   selector: 'app-mat-stepper',
@@ -11,17 +12,17 @@ export class MatStepperComponent implements OnInit {
   secondFormGroup:FormGroup;
   constructor(private formbuilder:FormBuilder) { 
     this.firstFormGroup = this.formbuilder.group({
-      name:['',Validators.required],
-      password:['',Validators.required],
-      conformpassword:['',Validators.required]
+      fname:['',Validators.required],
+      fpassword:['',Validators.required],
+      fconformpassword:['',Validators.required]
     },
     {
-      validators: customValidation.PasswordValidation
+      validators: customValidation.firstPasswordValidation
     });
     this.secondFormGroup = this.formbuilder.group({
-      name:['',Validators.required],
-      password:['',Validators.required],
-      conformpassword:['',Validators.required]
+      sname:['',Validators.required],
+      spassword:['',Validators.required],
+      sconformpassword:['',Validators.required]
     },
     {
       validators: customValidation.PasswordValidation
@@ -32,8 +33,17 @@ export class MatStepperComponent implements OnInit {
     
    
   }
+  firstValue(stepper:MatStepper){
+  if(this.firstFormGroup.valid){
+    stepper.next()
+  }
+
+  }
+  secondValue(){
+    
+  }
   twoFormData(){
-    let data = {firstValue:this.firstFormGroup.value, secondValue:this.secondFormGroup.value}
-    console.log(data)
+    let obj = {...this.firstFormGroup.value,...this.secondFormGroup.value}
+    console.log(obj)
   }
 }

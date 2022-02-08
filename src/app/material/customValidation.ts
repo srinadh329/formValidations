@@ -1,4 +1,4 @@
-import { AbstractControl } from "@angular/forms";
+import { AbstractControl, FormGroup } from "@angular/forms";
 
 // export function customValidation =>{
 //     public static ageValidation(contorl:AbstractControl)=>{
@@ -17,14 +17,20 @@ import { AbstractControl } from "@angular/forms";
 export class customValidation {
 
     public  static ageValidation(control: AbstractControl) {
-        return control.value < 18 ? {'aboveAge':true} : null
+        return control.value && control.value < 18 ? {'aboveAge':true} : null
    }
 
-   public static PasswordValidation(control: AbstractControl) {
-        
-        console.log(control.value)
-        return control.value.password !== control.value.conformpassword ? {'NotMatched':true} : null
-
-      
+   public static PasswordValidation(control: FormGroup) {
+        if(control.value.spassword !== control.value.sconformpassword) {
+            control.controls['sconformpassword'].setErrors({'NotMatched':true})
+        }
+        return 
    }
+   
+   public static firstPasswordValidation(control: FormGroup) {
+    if(control.value.fpassword !== control.value.fconformpassword) {
+        control.controls['fconformpassword'].setErrors({'NotMatched':true})
+    }
+    return 
+}
 }
