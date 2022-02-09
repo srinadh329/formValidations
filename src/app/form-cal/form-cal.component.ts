@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, NgModule, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
@@ -8,11 +8,12 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class FormCalComponent implements OnInit {
   CalForm: FormGroup;
-  value:any
+  total:any
+
   constructor(private formbuilder:FormBuilder) {
 
     this.CalForm = this.formbuilder.group({
-      name:['',Validators.required],
+      total:['',Validators.required],
       gross_salary:['',Validators.required],
       hra:['',Validators.required],
       incentives:['',Validators.required],
@@ -22,18 +23,10 @@ export class FormCalComponent implements OnInit {
    }
 
   ngOnInit(): void {
-    
+    this.CalForm.get('total')?.setValue(0)
   }
-  total(){
-   
-    // let total = this.CalForm.value;
-    if(this.CalForm.valid){
-      let total = parseInt(this.CalForm.value.gross_salary) + parseInt(this.CalForm.value.hra) + 
-      parseInt(this.CalForm.value.incentives) - (parseInt(this.CalForm.value.pf)+ parseInt(this.CalForm.value.tax));
-      console.log(total)
-      this.value = total
-    }
-  
+  calculateResultForm(){
+    this.CalForm.get('total')?.setValue(this.CalForm.value.gross_salary+this.CalForm.value.hra
+      + this.CalForm.value.incentives -(this.CalForm.value.pf+this.CalForm.value.tax))
   }
-
 }
