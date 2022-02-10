@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 @Component({
   selector: 'app-gst',
   templateUrl: './gst.component.html',
@@ -10,33 +10,36 @@ export class GstComponent implements OnInit {
   value:any
   constructor(private formbuilder:FormBuilder) {
     this.gstForm = this.formbuilder.group({
-      name:['',Validators.required],
       pirce:['',Validators.required],
       qty:['',Validators.required],
       gst:['',Validators.required],
-      discount:['']
+      discount:[''],
+      total:[''],
+      final:[''],
+      newFields:this.formbuilder.array([])
     })
    }
 
   ngOnInit(): void {
-   
+    this.gstForm.get('total')?.setValue(0);
+    this.gstForm.get('final')?.setValue(0);
   }
-  total(){
-    if(this.gstForm.valid && this.gstForm.value.pirce 
-      && this.gstForm.value.qty && this.gstForm.value.gst){
-      let res = parseInt(this.gstForm.value.pirce) * parseInt(this.gstForm.value.qty);
-      let total = (res* parseInt(this.gstForm.value.gst)/100) + res
-      this.value = total;
-      console.log(this.value)
 
-    }
-    else if(this.gstForm.valid && this.gstForm.value.pirce 
-      && this.gstForm.value.qty && this.gstForm.value.gst && this.gstForm.value.discount){
-      let res = parseInt(this.gstForm.value.pirce) * parseInt(this.gstForm.value.qty);
-      let total = (res* parseInt(this.gstForm.value.gst)/100) + res
-      this.value = total - parseInt(this.gstForm.value.discount);
-      console.log(this.value)
-
-    }
+  get newFields(){
+    return this.gstForm.get('newFields') as FormArray
   }
+  add(){
+    const newFields = this.formbuilder.group({
+      pirce:['',Validators.required],
+      qty:['',Validators.required],
+      gst:['',Validators.required],
+      discount:[''],
+    });
+    this.newFields.push(newFields)
+  }
+  calculateResultForm(){
+    this.gstForm.get('total')?.setValue(((this.gstForm.value.pirce*this.gstForm.value.qty)* this.gstForm.value.gst/100) 
+    + this.gstForm.value.pirce*this.gstForm.value.qty -this.gstForm.value.discount)
+  }
+  
 }
