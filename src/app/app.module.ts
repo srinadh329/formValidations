@@ -10,7 +10,8 @@ import { FormArrayComponent } from './form-array/form-array.component';
 import { FormCalComponent } from './form-cal/form-cal.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MaterialModule} from './material/material.module';
-import { GstComponent } from './gst/gst.component'
+import { GstComponent } from './gst/gst.component';
+import { TableComponent } from './table/table.component'
 @NgModule({
   declarations: [
     AppComponent,
@@ -19,7 +20,8 @@ import { GstComponent } from './gst/gst.component'
     MatStepperComponent,
     FormArrayComponent,
     FormCalComponent,
-    GstComponent
+    GstComponent,
+    TableComponent
   ],
   imports: [
     BrowserModule,

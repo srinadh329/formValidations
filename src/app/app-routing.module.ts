@@ -6,6 +6,7 @@ import { FormComponent } from './form/form.component';
 import { GstComponent } from './gst/gst.component';
 import { HeaderComponent } from './header/header.component';
 import { MatStepperComponent } from './mat-stepper/mat-stepper.component';
+import { TableComponent } from './table/table.component';
 
 const routes: Routes = [
   {
@@ -15,7 +16,8 @@ const routes: Routes = [
       {path:'matstepper',component:MatStepperComponent},
       {path:'formarray',component:FormArrayComponent},
       {path:'formcal',component:FormCalComponent},
-      {path:'gst',component:GstComponent}
+      {path:'gst',component:GstComponent},
+      {path:'table',component:TableComponent}
     ]
   }
 ];

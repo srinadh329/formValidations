@@ -6,7 +6,7 @@ import { MatInputModule } from '@angular/material/input';
 import {MatIconModule} from '@angular/material/icon';
 import {MatSelectModule} from '@angular/material/select';
 import {MatStepperModule} from '@angular/material/stepper';
-
+import { AgGridModule } from 'ag-grid-angular';
 @NgModule({
   declarations: [],
   imports: [
@@ -17,7 +17,8 @@ import {MatStepperModule} from '@angular/material/stepper';
     MatInputModule,
     MatIconModule,
     MatSelectModule,
-    MatStepperModule
+    MatStepperModule,
+    AgGridModule
   ],
   exports:[
     MatFormFieldModule,
@@ -26,7 +27,8 @@ import {MatStepperModule} from '@angular/material/stepper';
     MatInputModule,
     MatIconModule,
     MatSelectModule,
-    MatStepperModule
+    MatStepperModule,
+    AgGridModule
   ]
 })
 
