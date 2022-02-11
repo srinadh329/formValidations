@@ -21,12 +21,14 @@
     <mat-form-field appearance="outline">
       <mat-label>Choose State</mat-label>
       <mat-select formControlName="state"  (selectionChange)="stateSelection($event)">
-        <mat-option *ngFor="let state of states" value="{{state.name}}">{{state.name}}</mat-option>
+        <mat-option   *ngFor="let state of states; let i =index" value="{{state.name}}">
+         <mat-checkbox  [checked]="selected === i"  (change)="onChange(state.name);selected = i"> {{state.name}}</mat-checkbox>
+        </mat-option>
       </mat-select>
       <mat-error *ngIf="formValidation.get('state')?.hasError('required')">Please Enter State</mat-error>
     </mat-form-field>
   </p>
-  <p >
+  <p>
     <mat-form-field appearance="outline">
       <mat-label>Choose City</mat-label>
       <mat-select formControlName="city">

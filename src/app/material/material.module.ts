@@ -7,6 +7,7 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatSelectModule} from '@angular/material/select';
 import {MatStepperModule} from '@angular/material/stepper';
 import { AgGridModule } from 'ag-grid-angular';
+import {MatCheckboxModule} from '@angular/material/checkbox';
 @NgModule({
   declarations: [],
   imports: [
@@ -18,7 +19,8 @@ import { AgGridModule } from 'ag-grid-angular';
     MatIconModule,
     MatSelectModule,
     MatStepperModule,
-    AgGridModule
+    AgGridModule,
+    MatCheckboxModule
   ],
   exports:[
     MatFormFieldModule,
@@ -28,7 +30,8 @@ import { AgGridModule } from 'ag-grid-angular';
     MatIconModule,
     MatSelectModule,
     MatStepperModule,
-    AgGridModule
+    AgGridModule,
+    MatCheckboxModule
   ]
 })
 

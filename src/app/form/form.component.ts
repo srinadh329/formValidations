@@ -8,7 +8,8 @@ import {customValidation} from '../material/customValidation'
 })
 export class FormComponent implements OnInit {
   formValidation:FormGroup;
-  states:any=[{name:'Andhra Pradesh',cities:[{name:'vizag'},{name:'vzm'}]},
+  selected = -1;
+  states:any=[{name:'All'},{name:'Andhra Pradesh',cities:[{name:'vizag'},{name:'vzm'}]},
               {name:'Telangana',cities:[{name:'hyd'},{name:'kmm'}]}]
               city:any;
   constructor(private formbuilder:FormBuilder) {
@@ -29,7 +30,7 @@ export class FormComponent implements OnInit {
   // state selection function
 
   stateSelection(data:any){
-    console.log(data.value)
+    // console.log(data.value)
     this.city = this.states.find((s:any)=>s.name == data.value)?.cities;
     this.formValidation.get('city')?.enable()
   }
@@ -39,5 +40,12 @@ export class FormComponent implements OnInit {
     if(this.formValidation.valid){
       console.log(this.formValidation.value)
     }
+  }
+  onChange(data:any){
+    console.log(data)
+    if(data === 'All'){
+      
+    }
+
   }
 }
